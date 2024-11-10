@@ -3,7 +3,6 @@ import Colors from "./colors";
 import CongratulationImage from "./images/cong.png"; // Add your congratulatory image path here
 import FailureImage from "./images/fail.png"; // Add your failure image path here
 
-
 function Result({ score, total }) {
   const [text, setText] = useState("");
   const [image, setImage] = useState(null);
@@ -39,7 +38,7 @@ function Result({ score, total }) {
         
         <h2 className="text-[48px] font-semibold">{text}</h2>
         <p className="text-[32px]">
-          Your score is {score} out of {total}.
+          Your score is {score} out of 10.
         </p>
 
         <button
