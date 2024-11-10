@@ -15,7 +15,7 @@ function App() {
       setQuestions(questions);
     };
     getQuestions();
-  }, []);
+  }, [score]);
 
   return (
     <div className="app">
