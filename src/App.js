@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { fetchQuestions } from './api';
 import Result from './Result';
 import Quiz from './Quiz';
@@ -8,18 +8,23 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(true); // Default loading to true
 
   useEffect(() => {
     const getQuestions = async () => {
-      const questions = await fetchQuestions();
-      setQuestions(questions);
+      setLoading(true);  // Start loading
+      const fetchedQuestions = await fetchQuestions();
+      setQuestions(fetchedQuestions);
+      setLoading(false);  // End loading
     };
     getQuestions();
-  }, [score]);
+  }, []);
 
   return (
     <div className="app">
-      {showResult ? (
+      {loading ? (
+        <p>Loading questions...</p>
+      ) : showResult ? (
         <Result score={score} total={questions.length} />
       ) : (
         <Quiz

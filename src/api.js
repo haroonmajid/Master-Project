@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'https://opentdb.com/api.php?amount=10';
 
+
 export const fetchQuestions = async (retryCount = 3, delay = 1000) => {
   try {
     const response = await axios.get(API_URL);
